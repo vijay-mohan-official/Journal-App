@@ -9,7 +9,7 @@
 		<relativePath/>
 	</parent>
 	<groupId>com.learning</groupId>
-	<artifactId>journalapp</artifactId>
+	<artifactId>journalApp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Journal App</name>
 	<description>E2EE Journal App</description>

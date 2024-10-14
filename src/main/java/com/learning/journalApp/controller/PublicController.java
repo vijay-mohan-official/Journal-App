@@ -1,7 +1,7 @@
-package com.learning.journalapp.controller;
+package com.learning.journalApp.controller;
 
-import com.learning.journalapp.entity.User;
-import com.learning.journalapp.service.UserService;
+import com.learning.journalApp.entity.User;
+import com.learning.journalApp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

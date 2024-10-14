@@ -1,9 +1,9 @@
-package com.learning.journalapp.controller;
+package com.learning.journalApp.controller;
 
-import com.learning.journalapp.entity.JournalEntry;
-import com.learning.journalapp.entity.User;
-import com.learning.journalapp.service.JournalEntryService;
-import com.learning.journalapp.service.UserService;
+import com.learning.journalApp.entity.JournalEntry;
+import com.learning.journalApp.entity.User;
+import com.learning.journalApp.service.JournalEntryService;
+import com.learning.journalApp.service.UserService;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

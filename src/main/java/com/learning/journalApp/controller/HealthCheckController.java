@@ -1,4 +1,4 @@
-package com.learning.journalapp.controller;
+package com.learning.journalApp.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -1,0 +1,18 @@
+#server.port=8090
+#
+###Mongo DB properties
+##spring.data.mongodb.host=localhost
+##spring.data.mongodb.port=27017
+##spring.data.mongodb.database=journaldb
+#
+##If username and password is provided
+##spring.data.mongodb.username=myjournaluser
+##spring.data.mongodb.password=mypassword
+#
+##SpringBoot doesn't automatically create indexes in MongoDB, if we want SpringBoot to do it we need to add below property
+##spring.data.mongodb.auto-index-creation=true
+#
+###Mongo Atlas in AWS properties
+#spring.data.mongodb.uri=mongodb+srv://mongodb:mongopassword@cluster0.bnk3k.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+#spring.data.mongodb.database=journaldb
+#spring.data.mongodb.auto-index-creation=true

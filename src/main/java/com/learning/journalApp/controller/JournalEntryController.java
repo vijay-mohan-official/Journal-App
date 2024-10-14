@@ -1,6 +1,6 @@
-package com.learning.journalapp.controller;
+package com.learning.journalApp.controller;
 
-import com.learning.journalapp.entity.JournalEntry;
+import com.learning.journalApp.entity.JournalEntry;
 import org.bson.types.ObjectId;
 import org.springframework.web.bind.annotation.*;
 
