@@ -25,5 +25,5 @@ public class User {
     //Initializing journalEntries so that empty list will be created in DB instead of null
     @DBRef
     private List<JournalEntry> journalEntries = new ArrayList<>();
-
+    private List<String> roles;
 }
