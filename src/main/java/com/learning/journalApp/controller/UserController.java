@@ -1,8 +1,10 @@
 package com.learning.journalApp.controller;
 
+import com.learning.journalApp.api.response.WeatherResponse;
 import com.learning.journalApp.entity.User;
 import com.learning.journalApp.repository.UserRepository;
 import com.learning.journalApp.service.UserService;
+import com.learning.journalApp.service.WeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +21,9 @@ public class UserController {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private WeatherService weatherService;
 
     //Moved create user to another controller which is public to all
 
@@ -46,6 +51,17 @@ public class UserController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         userRepository.deleteByUserName(authentication.getName());
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping
+    public ResponseEntity<?> greetings(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        WeatherResponse weatherResponse = weatherService.getWeather("Mumbai");
+        String greeting = "";
+        if(weatherResponse != null){
+            greeting = ", Weather feels like"+weatherResponse.getCurrent().getFeelslike();
+        }
+        return new ResponseEntity<>("Hi "+authentication.getName()+greeting,HttpStatus.OK);
     }
 
 }
