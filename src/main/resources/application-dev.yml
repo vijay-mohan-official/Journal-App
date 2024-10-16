@@ -5,3 +5,10 @@ spring:
       port: 27017
       database: journaldb
       auto-index-creation: true
+
+#Added to learn that logger configuration can also be added in yaml file
+#logging:
+#  level:
+#    com:
+#      learning:
+#        journalApp: DEBUG
