@@ -6,3 +6,7 @@ server:
   port: 8090
 #  servlet:
 #    context-path: journalApp
+
+weather:
+  api:
+    key: f568f59803cf6633be3897daabbfd281
