@@ -5,6 +5,9 @@ spring:
       port: 27017
       database: journaldb
       auto-index-creation: true
+  redis:
+    host: localhost
+    port: 6379
 
 #Added to learn that logger configuration can also be added in yaml file
 #logging:

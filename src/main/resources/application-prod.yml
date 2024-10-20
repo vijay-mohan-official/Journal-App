@@ -4,3 +4,7 @@ spring:
       uri: mongodb+srv://mongodb:mongopassword@cluster0.bnk3k.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
       database: journaldb
       auto-index-creation: true
+  redis:
+    host: redis-10219.c212.ap-south-1-1.ec2.redns.redis-cloud.com
+    port: 10219
+    password: sixjhyuUgNGFeMlWwxLJqekCPYvfRjNz
