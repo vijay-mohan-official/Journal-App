@@ -1,10 +1,34 @@
 spring:
   data:
-    mongodb:
-      uri: mongodb+srv://mongodb:mongopassword@cluster0.bnk3k.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-      database: journaldb
-      auto-index-creation: true
+  mongodb:
+    uri: mongodb+srv://mongodb:mongopassword@cluster0.bnk3k.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+    database: journaldb
+    auto-index-creation: true
   redis:
     host: redis-10219.c212.ap-south-1-1.ec2.redns.redis-cloud.com
     port: 10219
     password: sixjhyuUgNGFeMlWwxLJqekCPYvfRjNz
+  kafka:
+    bootstrap-servers: pkc-l7pr2.ap-south-1.aws.confluent.cloud:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer:
+      group-id: weekly-sentiment-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: com.learning.journalApp.model
+    properties:
+      security:
+        protocol: SASL_SSL #Simple Authentication and Security Layer for authentication & SSL to encrypt and transfer data
+      sasl:
+        mechanism: PLAIN
+        jaas: #Java Authentication and Authorization Service
+          config: org.apache.kafka.common.security.plain.PlainLoginModule required username='BTWQXMI7SV4WAS3B' password='7LylK6lg7+kNmjUvRotX9TJ/M/2hHHHZ5ky3WPZvEkfIeIcGprnAfxC6yGv/7Hss';
+      session:
+        timeout:
+          ms: 45000
