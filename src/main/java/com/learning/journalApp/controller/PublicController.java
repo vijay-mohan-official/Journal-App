@@ -1,8 +1,12 @@
 package com.learning.journalApp.controller;
 
+import com.learning.journalApp.dto.UserDTO;
+import com.learning.journalApp.dto.UserLoginDTO;
 import com.learning.journalApp.entity.User;
 import com.learning.journalApp.service.UserService;
 import com.learning.journalApp.utils.JwtUtils;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 @RequestMapping("/public")
+@Tag(name = "Public APIs", description = "SignUp and Login User APIs")
 public class PublicController {
 
     @Autowired
@@ -34,12 +39,19 @@ public class PublicController {
     private JwtUtils jwtUtils;
 
     @PostMapping("/signup")
-    public void signUp(@RequestBody User user){
-        userService.saveNewUser(user);
+    @Operation(summary = "Sign Up API to create a user")
+    public void signUp(@RequestBody UserDTO user){
+        User newUser = new User();
+        newUser.setUserName(user.getUserName());
+        newUser.setPassword(user.getPassword());
+        newUser.setEmail(user.getEmail());
+        newUser.setSentimentAnalysis(user.isSentimentAnalysis());
+        userService.saveNewUser(newUser);
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody User user){
+    @Operation(summary = "Login API for User")
+    public ResponseEntity<?> login(@RequestBody UserLoginDTO user){
         try{
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(user.getUserName(), user.getPassword()));

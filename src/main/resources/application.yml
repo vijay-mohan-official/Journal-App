@@ -25,3 +25,7 @@ server:
 weather:
   api:
     key: f568f59803cf6633be3897daabbfd281
+#Adding custom path for Swagger UI
+springdoc:
+  swagger-ui:
+    path: /docs
